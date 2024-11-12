@@ -68,9 +68,9 @@ for line in handle:
     cur.execute('SELECT id FROM Album WHERE title = ? ', (album, ))
     album_id = cur.fetchone()[0]
 
-    # cur.execute('''INSERT OR REPLACE INTO Track
-    #     (title, album_id, len, rating, count) 
-    #     VALUES ( ?, ?, ?, ?, ? )''', 
-    #     ( name, album_id, length, rating, count ) )
+    cur.execute('''INSERT OR REPLACE INTO Track
+        (title, album_id, genre_id, len, rating, count) 
+        VALUES ( ?, ?, ?, ?, ?, ? )''', 
+        ( name, album_id, genre_id, length, rating, count ) )
 
     conn.commit()
